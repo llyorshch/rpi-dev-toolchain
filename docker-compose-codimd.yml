@@ -1,0 +1,21 @@
+version: "3"
+services:
+  codimd:
+    image: linuxserver/codimd:arm32v7-latest
+    restart: unless-stopped
+    volumes:
+      - codimd_data:/config
+    environment:
+      - DB_HOST=mysql
+      - DB_USER=pirate
+      - DB_PASS=hypriot
+      - DB_NAME=blackpearldb
+      - DB_PORT=3306
+      - PGID=1000
+      - PUID=1000
+      - TZ=Europe/Madrid
+    ports:
+      - "13000:3000"
+volumes: 
+  mariadb_data:
+  codimd_data:

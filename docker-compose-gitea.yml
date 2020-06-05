@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  gitea:
+    image: patrickthedev/gitea-rpi
+    volumes:
+      - gitea_data:/data
+    ports:
+      - "3000:3000"
+      - "3022:22"
+
+volumes:
+  gitea_data:
