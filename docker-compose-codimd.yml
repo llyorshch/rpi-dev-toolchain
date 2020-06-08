@@ -6,16 +6,17 @@ services:
     volumes:
       - codimd_data:/config
     environment:
-      - DB_HOST=mysql
-      - DB_USER=pirate
-      - DB_PASS=hypriot
-      - DB_NAME=blackpearldb
+      - DB_HOST=qnap.panxonia.ge.org.es
+      - DB_USER=codimd
+      - DB_PASS=${CODIMD_MYSQL_PASSWORD}
+      - DB_NAME=codimd
       - DB_PORT=3306
       - PGID=1000
       - PUID=1000
       - TZ=Europe/Madrid
     ports:
-      - "13000:3000"
+      - "3000:3000"
+    restart: unless-stopped
+
 volumes: 
-  mariadb_data:
   codimd_data:
