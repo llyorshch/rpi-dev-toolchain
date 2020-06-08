@@ -4,10 +4,8 @@ services:
   gitea:
     image: patrickthedev/gitea-rpi
     volumes:
-      - gitea_data:/data
+      - /opt/gitea/data:/data
     ports:
-      - "3000:3000"
+      - "80:3000"
       - "3022:22"
-
-volumes:
-  gitea_data:
+    restart: unless-stopped
